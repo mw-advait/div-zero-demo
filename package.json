@@ -1,0 +1,19 @@
+{
+  "name": "div-zero-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --require ./instrumentation.js index.js",
+    "start:local": "OTEL_EXPORTER_OTLP_CERTIFICATE=./mw-ca.crt node --require ./instrumentation.js index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "commonjs",
+  "dependencies": {
+    "@middleware.io/node-apm": "^2.5.0",
+    "dotenv": "^18.0.8"
+  }
+}
