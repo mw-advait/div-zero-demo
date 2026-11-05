@@ -42,6 +42,10 @@ function computeAverages(batches) {
     span.setAttribute('batch.count', batches.length);
     try {
       return batches.map(({ name, revenue, customers }) => {
+        if (customers === 0) {
+          tracker.warn?.(`${name}: skipping average, zero customers`, { batch: name });
+          return null;
+        }
         const avg = divide(revenue, customers);
         tracker.info(`${name}: average revenue per customer = ${avg.toFixed(2)}`, { batch: name });
         return avg;
